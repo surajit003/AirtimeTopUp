@@ -13,12 +13,9 @@ class AirtimeResponse:
     def handle_response(self):
         pass
 
-    def save_response(self, **kwargs):
-        pass
-
 
 class AfricaStalkingResponse(AirtimeResponse):
-    def save_response(self, **kwargs):
+    def __save_response(self, **kwargs):
         log_prefix = "AT  RESPONSE"
 
         try:
@@ -68,5 +65,5 @@ class AfricaStalkingResponse(AirtimeResponse):
                 "status": status,
                 "status_code": status_code,
             }
-        self.save_response(**kwargs)
+        self.__save_response(**kwargs)
         return
