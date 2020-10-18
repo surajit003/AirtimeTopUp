@@ -1,9 +1,9 @@
-from message.models import FileUpload
-import csv
-from at.utils import topup_airtime_via_at
 import logging
 import hashlib
-
+import csv
+from message.models import FileUpload
+from at.utils import topup_airtime_via_at
+from django.conf import settings
 logger = logging.getLogger(__name__)
 
 
@@ -93,5 +93,5 @@ class BulkAirtimeUpload(Upload):
         for data in row:
             if self.flood_control(data[0], data[2]):
                 topup_airtime_via_at(
-                    [data[0]], data[2], "sandbox", data[1]
+                    [data[0]], data[2], settings.AT_USERNAME, data[1]
                 )  # can be a celery process
