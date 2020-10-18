@@ -1,20 +1,10 @@
-from message.models import Gateway, Message
-from message.utils import ValidatePhoneNumber
+from message.models import Gateway
 from message.response import AfricaStalkingResponse
 import logging
 import africastalking
+from message.utils import validate_recipients, get_currency
 
 logger = logging.getLogger(__name__)
-
-
-def validate_recipients(recipient):
-    validate_phone = ValidatePhoneNumber()
-    valid_nos = []
-    if isinstance(recipient, list):
-        for number in recipient:
-            if validate_phone(number):
-                valid_nos.append(validate_phone(number))
-        return valid_nos
 
 
 def topup_airtime_via_at(recipient, amount, account_name=None, *args):
@@ -39,7 +29,7 @@ def topup_airtime_via_at(recipient, amount, account_name=None, *args):
             kwargs = {
                 "phone_number": recipient,
                 "amount": amount,
-                "currency_code": "KES",
+                "currency_code": get_currency(recipient),
             }
 
             response = send_topup(airtime, **kwargs)
