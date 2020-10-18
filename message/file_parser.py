@@ -92,7 +92,6 @@ class BulkAirtimeUpload(Upload):
     def top_up(self, row):
         for data in row:
             if self.flood_control(data[0], data[2]):
-                print("got it")
                 topup_airtime_via_at(
                     [data[0]], data[2], "sandbox", data[1]
                 )  # can be a celery process
