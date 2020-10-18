@@ -3,10 +3,8 @@ from django.core.exceptions import ValidationError
 from datetime import datetime
 from phone_iso3166.country import phone_country
 from country_currencies import get_by_country
-
-now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
 import logging
+now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 logger = logging.getLogger(__name__)
 
