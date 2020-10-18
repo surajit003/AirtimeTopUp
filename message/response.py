@@ -66,4 +66,3 @@ class AfricaStalkingResponse(AirtimeResponse):
                 "status_code": status_code,
             }
         self.__save_response(**kwargs)
-        return
