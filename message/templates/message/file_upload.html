@@ -1,0 +1,19 @@
+<html>
+<h1>
+    File Upload for Bulk SMS
+
+</h1>
+
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% if error_list %}
+    <h2>Bad Lines</h2>
+    {{ error_list }}
+    {% else %}
+    {% endif %}
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+</body>
+</html>
