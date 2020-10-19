@@ -33,9 +33,11 @@ class AfricaStalkingResponse(AirtimeResponse):
             )
             message.append_comment("DLR", self.response)
             message.save()
+            return message.id
         except KeyError as ex:
             logger.exception("{} {} {}".format(log_prefix, "Missing Key", ex))
-        return
+        except TypeError as ex:
+            logger.exception("{} {}".format(log_prefix, ex))
 
     def handle_response(self):
         if (
@@ -65,4 +67,4 @@ class AfricaStalkingResponse(AirtimeResponse):
                 "status": status,
                 "status_code": status_code,
             }
-        self.__save_response(**kwargs)
+        return self.__save_response(**kwargs)
