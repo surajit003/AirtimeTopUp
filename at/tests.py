@@ -17,7 +17,7 @@ class SMSTaskTests(TestCase):
         )
         self.at_valid_response = {'errorMessage': 'None', 'numSent': 1, 'totalAmount': 'KES 100.0000',
                                   'totalDiscount': 'KES 4.0000', 'responses': [
-                {'phoneNumber': '+254771621379', 'errorMessage': 'None', 'amount': 'KES 100.0000', 'status': 'Sent',
+                {'phoneNumber': '+25477162179', 'errorMessage': 'None', 'amount': 'KES 100.0000', 'status': 'Sent',
                  'requestId': 'ATQid_5389c866eb760cba818893cb8f068c93', 'discount': 'KES 4.0000'}]}
         self.at_error_response = {'errorMessage': 'A duplicate request was received within the last 5 minutes', 'numSent': 0, 'totalAmount': '0', 'totalDiscount': '0', 'responses': []}
         self.recipient = '9999999'
