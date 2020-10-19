@@ -43,7 +43,7 @@ def validate_recipients(recipient):
 
 
 def get_currency(recipient):
-    log_prefix = "GET COUNTRY CODE FROM PHONE NUMBER"
+    log_prefix = "GET CURRENCY FROM PHONE NUMBER"
     try:
         logger.info(u"{} {}".format(log_prefix, recipient))
         country_code = phone_country(recipient)
